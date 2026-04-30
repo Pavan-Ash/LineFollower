@@ -1,0 +1,64 @@
+🚗 PID Line Follower Robot (QTR-16 + Teensy 4.1)
+
+This project implements a high-speed PID-controlled line follower robot using a 16-element Pololu QTR analog sensor array, powered by the Teensy 4.1 microcontroller and driven by a TB6612 motor driver.
+
+The goal of this project is to achieve precise line tracking, smooth motion, and fast response using a well-tuned PID control system.
+
+📌 Features
+🔍 16-sensor line detection for high-resolution tracking
+⚡ Fast control loop using Teensy 4.1
+🎯 PID-based correction (Kp, Kd) for accurate steering
+🔄 Customizable motor control via TB6612 driver
+🧠 Easily adaptable to other microcontrollers
+⚙️ Hardware Used
+🧩 Microcontroller: Teensy 4.1
+📡 Sensor Array: Pololu QTR-16 Analog Sensor Array
+🔌 Motor Driver: TB6612FNG Motor Driver
+⚙️ DC Motors with gearbox
+🔋 Battery pack
+🧠 How It Works
+
+The robot uses the QTR sensor array to detect the position of the line. Based on this position, an error value is calculated.
+
+The PID controller computes correction using:
+
+Proportional (Kp) → reacts to current error
+Derivative (Kd) → reacts to rate of change of error
+
+This correction is applied to motor speeds to keep the robot aligned with the line.
+
+🔧 Code Customization
+
+You can easily adapt this code to your setup:
+
+1. Sensor Pins
+
+Modify the sensors[] array in the code:
+
+int sensors[] = {A0, A1, A2, ..., A15};
+
+➡️ Ensure all pins are connected to ADC-capable pins on your microcontroller.
+
+2. PID Tuning
+
+Adjust these parameters for best performance:
+
+float Kp = 0.8;
+float Kd = 4.5;
+Increase Kp → faster response, but may oscillate
+Increase Kd → smoother motion, reduces overshoot
+3. Motor Driver Pins
+
+Update motor control pins according to your wiring:
+
+#define AIN1 2
+#define AIN2 3
+#define PWMA 4
+#define BIN1 5
+#define BIN2 6
+#define PWMB 7
+⚠️ Important Notes
+✅ QTR analog sensor pins must be connected to ADC pins
+⚡ Ensure proper power supply for motors and controller
+🔧 Perform sensor calibration before running the bot
+🧪 PID tuning is critical for optimal performance
