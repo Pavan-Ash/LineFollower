@@ -1,0 +1,46 @@
+#include <QTRSensors.h>
+
+QTRSensors qtr;
+
+const uint8_t SensorCount = 16;
+uint16_t sensorValues[SensorCount];
+
+const uint8_t sensors[16] = {
+  14, 15, 16, 17,
+  20, 21, 22, 23,
+  24, 25, 26, 27,
+  38, 39, 40, 41
+};
+
+void setup() {
+  Serial.begin(115200);
+
+  qtr.setTypeAnalog();
+  qtr.setSensorPins(sensors, SensorCount);
+
+  Serial.println("Calibrating...");
+  for (int i = 0; i < 200; i++) {
+    qtr.calibrate();
+    delay(20);
+  }
+  Serial.println("Done");
+}
+
+void loop() {
+  // 🔥 THIS gives position
+  uint16_t position = qtr.readLineBlack(sensorValues);
+
+  // Print position
+  Serial.print("Position: ");
+  Serial.print(position);
+
+  // Optional: print sensor values
+  Serial.print(" | Sensors: ");
+  for (int i = 0; i < SensorCount; i++) {
+    Serial.print(sensorValues[i]);
+    Serial.print("\t");
+  }
+
+  Serial.println();
+  delay(200);
+}
