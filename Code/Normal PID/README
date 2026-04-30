@@ -1,33 +1,34 @@
-🚗 PID Line Follower Robot (QTR-16 + Teensy 4.1)
+🚗 𝐏𝐈𝐃 𝐋𝐢𝐧𝐞 𝐅𝐨𝐥𝐥𝐨𝐰𝐞𝐫 𝐑𝐨𝐛𝐨𝐭 (𝐐𝐓𝐑-𝟏𝟔 + 𝐓𝐞𝐞𝐧𝐬𝐲 𝟒.𝟏)
 
 This project implements a high-speed PID-controlled line follower robot using a 16-element Pololu QTR analog sensor array, powered by the Teensy 4.1 microcontroller and driven by a TB6612 motor driver.
 
 The goal of this project is to achieve precise line tracking, smooth motion, and fast response using a well-tuned PID control system.
 
-📌 Features
-🔍 16-sensor line detection for high-resolution tracking
-⚡ Fast control loop using Teensy 4.1
-🎯 PID-based correction (Kp, Kd) for accurate steering
-🔄 Customizable motor control via TB6612 driver
-🧠 Easily adaptable to other microcontrollers
-⚙️ Hardware Used
-🧩 Microcontroller: Teensy 4.1
-📡 Sensor Array: Pololu QTR-16 Analog Sensor Array
-🔌 Motor Driver: TB6612FNG Motor Driver
-⚙️ DC Motors with gearbox
-🔋 Battery pack
-🧠 How It Works
+📌 𝑭𝒆𝒂𝒕𝒖𝒓𝒆𝒔:
+  🔍 16-sensor line detection for high-resolution tracking
+  ⚡ Fast control loop using Teensy 4.1
+  🎯 PID-based correction (Kp, Kd) for accurate steering
+  🔄 Customizable motor control via TB6612 driver
+  🧠 Easily adaptable to other microcontrollers
+⚙️ 𝑯𝒂𝒓𝒅𝒘𝒂𝒓𝒆 𝑼𝒔𝒆𝒅:
+  🧩 Microcontroller: Teensy 4.1
+  📡 Sensor Array: Pololu QTR-16 Analog Sensor Array
+  🔌 Motor Driver: TB6612FNG Motor Driver
+  ⚙️ DC Motors with gearbox
+  🔋 Battery pack
+
+🧠 𝑯𝒐𝒘 𝑰𝒕 𝑾𝒐𝒓𝒌𝒔
 
 The robot uses the QTR sensor array to detect the position of the line. Based on this position, an error value is calculated.
 
 The PID controller computes correction using:
 
 Proportional (Kp) → reacts to current error
-Derivative (Kd) → reacts to rate of change of error
+Derivative (Kd) → reacts to the rate of change of error
 
 This correction is applied to motor speeds to keep the robot aligned with the line.
 
-🔧 Code Customization
+🔧 𝐂𝐨𝐝𝐞 𝐂𝐮𝐬𝐭𝐨𝐦𝐢𝐳𝐚𝐭𝐢𝐨𝐧
 
 You can easily adapt this code to your setup:
 
